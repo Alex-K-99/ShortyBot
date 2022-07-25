@@ -39,8 +39,6 @@ public class SpBot {
         new SpBot(token);
 
         shutdown();
-        //test
-
     }
 
     static public void shutdown(){
@@ -67,7 +65,6 @@ public class SpBot {
             } catch (IOException e){
                 e.printStackTrace();
             }
-            //test
 
 
         }).start();
