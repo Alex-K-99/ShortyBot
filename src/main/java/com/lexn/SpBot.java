@@ -4,7 +4,6 @@ import net.dv8tion.jda.api.JDA;
 import net.dv8tion.jda.api.JDABuilder;
 import net.dv8tion.jda.api.OnlineStatus;
 import net.dv8tion.jda.api.entities.Activity;
-import net.dv8tion.jda.api.sharding.DefaultShardManagerBuilder;
 
 import javax.security.auth.login.LoginException;
 import java.io.BufferedReader;
@@ -25,7 +24,7 @@ public class SpBot {
 
 
 
-            this.jda = builder.build();
+            jda = builder.build();
         } catch (LoginException e){
             e.printStackTrace();
             System.out.println("Login Failed.");
@@ -42,7 +41,7 @@ public class SpBot {
     static public void shutdown(){
         new Thread(() -> {
 
-            String line = "";
+            String line;
             BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
             try{
                 while ((line = br.readLine()) != null) {
