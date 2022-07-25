@@ -9,14 +9,15 @@ import javax.security.auth.login.LoginException;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.Map;
 
 public class SpBot {
 
     public static JDA jda;
 
-    public SpBot() {
+    public SpBot(String token) {
         try {
-            JDABuilder builder = JDABuilder.createDefault("MTAwMTA4ODEzMDE1MTA4ODE1OA.GPmQ-m.SxZwb52n0jM93Tyi-o0UBYMWn-FcB_tKAWauuo");
+            JDABuilder builder = JDABuilder.createDefault(token);
 
 
             builder.setActivity(Activity.playing("mit Steuergeldern"));
@@ -32,7 +33,10 @@ public class SpBot {
     }
 
     public static void main(String[] args) {
-        new SpBot();
+        Map<String, String> env = System.getenv();
+        String token = env.get("ShortyBotToken");
+        System.out.println(token);
+        new SpBot(token);
 
         shutdown();
         //test
