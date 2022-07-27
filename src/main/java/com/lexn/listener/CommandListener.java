@@ -34,9 +34,11 @@ public class CommandListener extends ListenerAdapter {
                     messageObject.reply("Booting Server. (meme)").queue();
                     try {
                         System.out.println("Trying to boot server...");
-                        Process p = new ProcessBuilder("cmd.exe").start();
-                        p.waitFor();
-                    } catch (IOException | InterruptedException e) {
+                        /*Process p = new ProcessBuilder("cmd.exe").start();
+                        p.waitFor();*/
+                        Runtime rt = Runtime.getRuntime();
+                        rt.exec("cmd.exe");
+                    } catch (IOException e) {
                         throw new RuntimeException(e);
                     }
                 }
