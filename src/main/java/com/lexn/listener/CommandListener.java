@@ -34,7 +34,7 @@ public class CommandListener extends ListenerAdapter {
                     messageObject.reply("Booting Server. (meme)").queue();
                     try {
                         System.out.println("Trying to boot server...");
-                        Process p = new ProcessBuilder("C:\\Users\\Minecraft Server\\Desktop\\mc server\\start_paper.bat").start();
+                        Process p = new ProcessBuilder("C:\\Users\\Minecraft Server\\Desktop\\start_paper.bat - Verknüpfung").start();
                         p.waitFor();
                     } catch (IOException | InterruptedException e) {
                         throw new RuntimeException(e);
