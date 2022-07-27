@@ -1,1 +1,0 @@
-java -jar SpBot-1.0-SNAPSHOT-jar-with-dependencies.jar

@@ -33,7 +33,7 @@ public class CommandListener extends ListenerAdapter {
                 if(args[0].equalsIgnoreCase(prefix+"boot")){
                     messageObject.reply("Booting Server. (meme)").queue();
                     try {
-                        Process p = new ProcessBuilder("C:\\DiscoBot\\ShortyBot\\target\\start_shortybot.bat").start();
+                        Process p = new ProcessBuilder("C:\\Users\\Minecraft Server\\Desktop\\mc server\\paper.jar").start();
                         p.waitFor();
                     } catch (IOException | InterruptedException e) {
                         throw new RuntimeException(e);
