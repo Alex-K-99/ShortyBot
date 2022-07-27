@@ -1,9 +1,12 @@
 package com.lexn;
 
+import com.lexn.listener.CommandListener;
 import net.dv8tion.jda.api.JDA;
 import net.dv8tion.jda.api.JDABuilder;
 import net.dv8tion.jda.api.OnlineStatus;
 import net.dv8tion.jda.api.entities.Activity;
+import net.dv8tion.jda.api.requests.GatewayIntent;
+import net.dv8tion.jda.api.utils.cache.CacheFlag;
 
 import javax.security.auth.login.LoginException;
 import java.io.BufferedReader;
@@ -17,12 +20,14 @@ public class SpBot {
 
     public SpBot(String token) {
         try {
-            JDABuilder builder = JDABuilder.createDefault(token);
+            JDABuilder builder = JDABuilder.createDefault(token, GatewayIntent.GUILD_MESSAGES, GatewayIntent.MESSAGE_CONTENT)
+                    .disableCache(CacheFlag.VOICE_STATE, CacheFlag.EMOJI, CacheFlag.STICKER);
 
 
             builder.setActivity(Activity.playing("mit Steuergeldern"));
             builder.setStatus(OnlineStatus.ONLINE);
 
+            builder.addEventListeners(new CommandListener());
 
 
             jda = builder.build();
@@ -35,7 +40,6 @@ public class SpBot {
     public static void main(String[] args) {
         Map<String, String> env = System.getenv();
         String token = env.get("ShortyBotToken");
-        System.out.println(token);
         new SpBot(token);
 
         shutdown();
