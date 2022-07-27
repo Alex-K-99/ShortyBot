@@ -37,7 +37,7 @@ public class CommandListener extends ListenerAdapter {
                         /*Process p = new ProcessBuilder("cmd.exe").start();
                         p.waitFor();*/
                         Runtime rt = Runtime.getRuntime();
-                        rt.exec("cmd.exe");
+                        rt.exec("cmd.exe /c start cmd");
                     } catch (IOException e) {
                         throw new RuntimeException(e);
                     }
